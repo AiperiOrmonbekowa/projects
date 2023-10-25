@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "669132196339",
+    "project_id": "sign-in-bed99",
+    "storage_bucket": "sign-in-bed99.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669132196339:android:6857cd2e21b828cfe6ea86",
+        "android_client_info": {
+          "package_name": "com.example.sigin_in"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669132196339-76iep75uqqvavjm9p660dnto8v3emit2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxyCnQF7cFUGGRjtHY9XRtCk-fFzWlcbk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "669132196339-76iep75uqqvavjm9p660dnto8v3emit2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "669132196339-6ktjs0c8hljhcrc3aq7o9gk9pev98mf8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.siginIn"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
