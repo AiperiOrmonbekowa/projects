@@ -1,0 +1,2 @@
+const fakeModel = 
+  {"coord":{"lon":10.99,"lat":44.34},"weather":[{"id":804,"main":"Clouds","description":"overcast clouds","icon":"04d"}],"base":"stations","main":{"temp":279.96,"feels_like":279.2,"temp_min":277.97,"temp_max":283.38,"pressure":1008,"humidity":94,"sea_level":1008,"grnd_level":922},"visibility":7954,"wind":{"speed":1.47,"deg":17,"gust":1.45},"clouds":{"all":100},"dt":1700556622,"sys":{"type":2,"id":2004688,"country":"IT","sunrise":1700547556,"sunset":1700581480},"timezone":3600,"id":3163858,"name":"Zocca","cod":200}
