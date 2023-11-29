@@ -1,5 +1,5 @@
-import 'package:api_zd/constants/api.dart';
-import 'package:api_zd/model/login_data.dart';
+import 'package:api_zd/model/api_model.dart';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -13,36 +13,37 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    Future<LoginData?> fetchData() async {
+    Future<Weather?> fetchData() async {
       final dio = Dio();
-      final res = await dio.get(ApiConst.adress);
+      final response = await dio.get(
+          'https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=2dadb31a8f4956aa5426d59e3884dde5');
 
-      if (res.statusCode == 200) {
-        final login = LoginData(
-          name: res.data['login'][0]['name'],
-          description: res.data['login'][0]['description'],
-          renders: res.data['login'][0]['renders'],
-          parses: res.data['login'][0]['parses'],
+      if (response.statusCode == 200) {
+        final api = Weather(
+          id: response.data['api'][0]['id'],
+          name: response.data['api'][0]['name'],
+          // airDate: response.data['api'][0]['airDate'],
+          // created: response.data['api'][0]['created'],
+          // episode: response.data['api'][0]['episode'],
+          // characters: response.data['api'][0]['characters'],
+          // url: response.data['api'][0]['url'],
         );
-        return login;
+
+        return api;
       }
       return null;
     }
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Test Api'),
+        title: const Text('Api example'),
         centerTitle: true,
       ),
       body: Center(
         child: FutureBuilder(
           future: fetchData(),
           builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.none) {
-              return const Text('Интернет жок');
-            } else if (snapshot.connectionState == ConnectionState.waiting) {
-              return const CircularProgressIndicator();
-            } else if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.connectionState == ConnectionState.done) {
               if (snapshot.hasError) {
                 return Text('${snapshot.error}');
               } else if (snapshot.hasData) {
@@ -50,9 +51,6 @@ class _HomeViewState extends State<HomeView> {
                 return Column(
                   children: [
                     Text('name: ${login!.name}'),
-                    Text('descripsion: ${login.description}'),
-                    Text('renders: ${login.renders}'),
-                    Text('parses: ${login.parses}'),
                   ],
                 );
               } else {
