@@ -1,28 +1,23 @@
-import 'package:api_example/model/sys.dart';
-import 'package:api_example/model/weather_element.dart';
-
 class Weather {
   Weather({
-    required this.weather,
-    required this.base,
-    required this.visibility,
-    required this.dt,
-    required this.sys,
-    required this.timezone,
     required this.id,
-    required this.name,
-    required this.cod,
+    required this.main,
   });
 
-  List<WeatherElement> weather;
-  String base;
+  final int id;
+  final String main;
 
-  int visibility;
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'id': id,
+      'name': main,
+    };
+  }
 
-  int dt;
-  Sys sys;
-  int timezone;
-  int id;
-  String name;
-  int cod;
+  factory Weather.fromJson(Map<String, dynamic> json) {
+    return Weather(
+      id: json['id'] as int,
+      main: json['main'] as dynamic,
+    );
+  }
 }
