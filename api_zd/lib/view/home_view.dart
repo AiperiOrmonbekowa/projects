@@ -1,3 +1,4 @@
+import 'package:api_zd/constants/api_const.dart';
 import 'package:api_zd/model/api_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -14,20 +15,13 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     Future<Weather?> fetchData() async {
       final dio = Dio();
-      final response = await dio.get(
-          'https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=2dadb31a8f4956aa5426d59e3884dde5');
-
+      final response = await dio.get(ApiConst.adress);
       if (response.statusCode == 200) {
         final api = Weather(
           id: response.data['api'][0]['id'],
           name: response.data['api'][0]['name'],
-          // airDate: response.data['api'][0]['airDate'],
-          // created: response.data['api'][0]['created'],
-          // episode: response.data['api'][0]['episode'],
-          // characters: response.data['api'][0]['characters'],
-          // url: response.data['api'][0]['url'],
-        );
 
+        );
         return api;
       }
       return null;
@@ -50,6 +44,7 @@ class _HomeViewState extends State<HomeView> {
                 return Column(
                   children: [
                     Text('name: ${login!.name}'),
+                     Text('name: ${login.id}'),
                   ],
                 );
               } else {

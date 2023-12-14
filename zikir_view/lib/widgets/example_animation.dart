@@ -1,3 +1,7 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
+
 class ExampleAnimation extends StatefulWidget {
   const ExampleAnimation({super.key});
 
