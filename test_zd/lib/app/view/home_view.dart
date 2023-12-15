@@ -1,5 +1,6 @@
+// ignore_for_file: unused_local_variable
 
-
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:test_zd/model/login.dart';
 
@@ -22,7 +23,7 @@ class _HomeViewState extends State<HomeView> {
     final response = await dio.get(link);
     if (response.statusCode == 200 || response.statusCode == 201) {
       final body = response.data;
-      atricleData = AtricleData.fromJson(body);
+      var atricleData = AtricleData.fromJson(body);
       setState(() {});
     }
   }
@@ -35,8 +36,6 @@ class _HomeViewState extends State<HomeView> {
     getData();
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,6 +46,10 @@ class _HomeViewState extends State<HomeView> {
       ),
     );
   }
+}
+
+class AtricleData {
+  static fromJson(body) {}
 }
 
 class CenterWidget extends StatelessWidget {
