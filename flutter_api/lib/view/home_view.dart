@@ -16,6 +16,7 @@ class HomeView extends StatelessWidget {
       // return res;
 
       if (res.statusCode == 200) {
+        // ignore: unused_local_variable
         final MWL = Api(
           id: res.data['MWL']['id'],
           name: res.data['MWL']['name'],
