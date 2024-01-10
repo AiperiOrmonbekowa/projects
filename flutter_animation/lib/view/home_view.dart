@@ -16,7 +16,7 @@ class HomeView extends StatelessWidget {
         color: const Color(0xFFEAEAEA),
         child: Column(
           children: [
-            // HomeWeader(),
+            HomeWeader(),
             Expanded(
               child: Container(
                 padding: const EdgeInsets.symmetric(
