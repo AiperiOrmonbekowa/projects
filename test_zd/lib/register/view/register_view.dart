@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:test_zd/components/buttons/custom_button.dart';
 import 'package:test_zd/components/input/custom_text_field.dart';
+import 'package:test_zd/home/view/home_page.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
@@ -11,12 +12,21 @@ class RegisterView extends StatefulWidget {
 }
 
 class _RegisterViewState extends State<RegisterView> {
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
-  void signUserIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text, password: passwordController.text);
+  void _signUp() async {
+    try {
+      UserCredential userCredential =
+          await _auth.createUserWithEmailAndPassword(
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
+      print("User signed up: ${userCredential.user?.uid}");
+    } catch (e) {
+      print("Error during sign-up: $e");
+    }
   }
 
   @override
@@ -35,16 +45,24 @@ class _RegisterViewState extends State<RegisterView> {
             ),
             const SizedBox(height: 20),
             CustomTextField(
-              controller: emailController,
+              controller: _emailController,
               labelText: 'Email',
             ),
             const SizedBox(height: 20),
             CustomTextField(
-              controller: passwordController,
+              controller: _passwordController,
               labelText: 'Password',
             ),
             const SizedBox(height: 20),
-            CustomElevatedButton(text: 'NEXT', onPressed: signUserIn),
+            CustomElevatedButton(
+                text: 'NEXT',
+                onPressed: () {
+                  _signUp();
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomePage()));
+                }),
             const SizedBox(height: 30),
           ],
         ),

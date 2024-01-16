@@ -9,45 +9,47 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          const BackgroundImage(),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CustomElevatedButton(
-                text: 'LOG IN',
-                textColor: Colors.black,
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const LoginView.LoginView()),
-                  );
-                },
-              ),
-              const SizedBox(
-                width: 20,
-              ),
-              CustomElevatedButton(
-                text: 'REGISTER',
-                color: Colors.black,
-                textColor: Colors.white,
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const RegisterView(),
-                    ),
-                  );
-                },
-              ),
-            ],
-          )
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const BackgroundImage(),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CustomElevatedButton(
+                  text: 'LOG IN',
+                  textColor: Colors.black,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginView.LoginView()),
+                    );
+                  },
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                CustomElevatedButton(
+                  text: 'REGISTER',
+                  color: Colors.black,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const RegisterView(),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
