@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names, avoid_print
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:test_zd/components/buttons/custom_button.dart';
@@ -66,7 +68,7 @@ class _RegisterViewState extends State<LoginView> {
                 onPressed: () {
                   _signIn;
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomePage()));
+                      MaterialPageRoute(builder: (context) => const HomePage()));
                 }),
             const SizedBox(height: 30),
           ],
@@ -91,3 +93,4 @@ class _RegisterViewState extends State<LoginView> {
 //     }
 //   }
 }
+

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:test_zd/components/buttons/custom_button.dart';
@@ -70,13 +72,5 @@ class _RegisterViewState extends State<RegisterView> {
     );
   }
 
-//   bool checkForm() {
-//     if (_emailCtl.text.isNotEmpty &&
-//         _passwordCtl.text.isNotEmpty &&
-//         _confirmPasswordCtl.text.isNotEmpty) {
-//       return true;
-//     } else {
-//       return false;
-//     }
-//   }
+
 }
